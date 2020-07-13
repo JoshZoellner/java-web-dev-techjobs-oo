@@ -7,7 +7,7 @@ public class Employer {
     private static int nextId = 1;
     private String value;
 
-    public Employer() {
+    public Employer(){
         id = nextId;
         nextId++;
     }
