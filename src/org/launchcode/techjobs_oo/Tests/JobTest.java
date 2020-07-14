@@ -16,8 +16,6 @@ public class JobTest {
 
     Job test_job;
     Job test_job2;
-    Job test_job3;
-    Job test_job4;
 
     @Before
     public void createJobObject() {
@@ -56,14 +54,23 @@ public class JobTest {
     @Test
     public void testJobsForEquality(){
 
-        test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        test_job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        test_job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        test_job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertNotEquals(test_job3.getId(), test_job4.getId());
-
+        assertNotEquals(test_job.getId(), test_job2.getId());
     }
 
+    @Test
+    public void testToString(){
+        test_job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+//      System.out.println(test_job.toString());
+        assertEquals("\nID: " + test_job.getId() +
+                "\nName: " + test_job.getName() +
+                "\nEmployer: " + test_job.getEmployer() +
+                "\nLocation: " + test_job.getLocation() +
+                "\nPosition Type: " + test_job.getPositionType() +
+                "\nCore Competency: " + test_job.getCoreCompetency() +
+                "\n", test_job.toString());
+        }
 }
-
-
-
